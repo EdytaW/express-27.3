@@ -1,31 +1,33 @@
-<h2>Contact me</h2>
-<form action="/contact/send-message" method="POST">
-  <label>
-    Your name: <input type="text" name="author">
-  </label>
-  <label>
-    Your email: <input type="email" name="sender">
-  </label>
-  <label>
-    Title: <input type="text" name="title">
-  </label>
-  <label>
-    Project Design: <input type="file">
-  </label>
-   <label>
-    Message: <textarea name="message"></textarea>
-  </label>
-  
-  <button type="submit">Send message</button>
+<body>
+  <h2>Contact me</h2>
+  <form action="/contact/send-message" method="POST">
+    <label>
+      Your name: <input type="text" name="author">
+    </label>
+    <label>
+      Your email: <input type="email" name="sender">
+    </label>
+    <label>
+      Title: <input type="text" name="title">
+    </label>
+    <label>
+      Project Design: <input type="file">
+    </label>
+    <label>
+      Message: <textarea name="message"></textarea>
+    </label>
+    
+    <button type="submit">Send message</button>
 
-  <div class="isSent">
-    {{#if isSent}}
-    The message has been sent!
-    {{/if}}
-  </div>
-  <div className="isError">
-    {{#if isError}}
-    You can't leave fields empty!
-    {{/if}}
-  </div>
-</form>
+    <div class="isSent">
+      {{#if isSent}}
+      The message has been sent!
+      {{/if}}
+    </div>
+    <div className="isError">
+      {{#if isError}}
+      You can't leave fields empty!
+      {{/if}}
+    </div>
+  </form>
+</body>
