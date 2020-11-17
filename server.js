@@ -9,11 +9,11 @@ app.set('view engine', '.hbs');
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', (req, res) => {
-  res.render('index', { layout: false });
+  res.render('index');
 });
 
 app.get('/hello/:name', (req, res) => {
-  res.render('hello', { layout: false, name: req.params.name });
+  res.render('hello', { name: req.params.name });
 });
 
 app.get('/about', (req, res) => {
