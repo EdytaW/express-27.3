@@ -1,10 +1,13 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
+var multer  = require('multer')
 
 const app = express();
 app.engine('hbs', hbs({ extname: 'hbs', layoutsDir: './views/layouts', defaultLayout: 'main' }));
 app.set('view engine', '.hbs');
+
+const upload = multer({ dest: 'public/' })
 
 app.use(express.static(path.join(__dirname, '/public')));
 
@@ -39,10 +42,10 @@ app.post('/contact/send-message', (req, res) => {
   const { author, sender, title, message } = req.body;
 
   if(author && sender && title && message) {
-    res.send('The message has been sent!');
+    res.send('contact', {isSent: true});
   }
   else {
-    res.send('You can\'t leave fields empty!')
+    res.send('contact', {isError: true});
   }
 
 });
