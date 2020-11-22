@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
-var multer  = require('multer')
+var multer  = require('multer');
 
 const app = express();
 app.engine('hbs', hbs({ extname: 'hbs', layoutsDir: './views/layouts', defaultLayout: 'main' }));
@@ -35,6 +35,7 @@ app.get('/history', (req, res, next) => {
   res.render('history');
 });
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/contact/send-message', upload.single('file'), (req, res) => {
