@@ -19,15 +19,15 @@
     
     <button type="submit">Send message</button>
 
-    <div class="isSent">
-      {{#if isSent}}
+    {{#if isSent}}
+    <div class="isSent"> 
       The message has been sent!
-      {{/if}}
     </div>
+    {{/if}}
+    {{#if isError}}
     <div className="isError">
-      {{#if isError}}
       You can't leave fields empty!
-      {{/if}}
     </div>
+    {{/if}}
   </form>
 </body>
