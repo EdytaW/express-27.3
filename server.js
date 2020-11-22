@@ -37,15 +37,15 @@ app.get('/history', (req, res, next) => {
 
 app.use(express.urlencoded({ extended: false }));
 
-app.post('/contact/send-message', (req, res) => {
+app.post('/contact/send-message', upload.single('file'), (req, res) => {
 
   const { author, sender, title, message } = req.body;
 
   if(author && sender && title && message) {
-    res.send('contact', {isSent: true});
+    res.render('contact', {isSent: true});
   }
   else {
-    res.send('contact', {isError: true});
+    res.render('contact', {isError: true});
   }
 
 });
