@@ -38,17 +38,16 @@ app.get('/history', (req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.post('/contact/send-message', upload.single('file'), (req, res) => {
-
+app.post('/contact/send-message', upload.single('uploaded_file'), (req, res) => {
   const { author, sender, title, message } = req.body;
-
-  if(author && sender && title && message) {
-    res.render('contact', {isSent: true});
+  console.log(req.file)
+  
+  if(author && sender && title && message && req.file.filename) {
+    res.render('contact', {data: {isSent: true, filename: req.file.originalname}});
   }
   else {
     res.render('contact', {isError: true});
   }
-
 });
 
 app.use((req, res) => {

@@ -1,9 +1,9 @@
 <body>
   <h2>Contact me</h2>
   <form action="/contact/send-message" method="POST" enctype="multipart/form-data">
-    {{#if isSent}}
+    {{#if data.isSent}}
     <div class="isSent"> 
-      The message has been sent!
+      The message has been sent! {{data.filename}}
     </div>
     {{/if}}
     {{#if isError}}
@@ -22,7 +22,7 @@
       Title: <input type="text" name="title">
     </label>
     <label>
-      Project Design: <input type="file">
+      Project Design: <input type="file" name="uploaded_file">
     </label>
     <label>
       Message: <textarea name="message"></textarea>
